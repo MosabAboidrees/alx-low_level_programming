@@ -12,7 +12,7 @@ int main(void)
 {
 	int n = 48; /*ASCII of zero*/
 
-	while (n < 102) /* ASCII of f*/
+	while (n <= 102) /* ASCII of f*/
 	{
 		putchar(n);
 		/* after 9 move to 96*/
