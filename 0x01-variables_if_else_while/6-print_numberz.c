@@ -12,10 +12,9 @@ int main(void)
 {
 	int n;
 
-	while (n < 58)
+	for (n = 48; n < 58; n++)
 	{
 		putchar(n);
-		n++;
 	}
 	putchar('\n');
 	return (0);
