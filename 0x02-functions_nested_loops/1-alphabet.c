@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * print_alphabet - Entry point
  *
  * Description: a Prototype function that prints the
- * alphabet, in lowercase followed by a new line
+ * alphabet a - z stored in @i, in lowercase followed by a new line
  *
  * Return: Always 0 (Success)
  *
