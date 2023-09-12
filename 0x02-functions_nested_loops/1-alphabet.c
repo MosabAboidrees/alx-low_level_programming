@@ -18,5 +18,4 @@ void print_alphabet(void)
 	for (i = 'a'; i <= 'z'; i++)
 		_putchar(i); /* print the current charactor*/
 	_putchar('\n');
-	return (0);
 }
