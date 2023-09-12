@@ -2,9 +2,12 @@
 
 /**
  * _islower - a function that checks for lowercase character
- * Returns 1 if @c is lowercase
- * Return: 0 otherwise
- */
+ *
+ * @c: is the input charactor
+ *
+ * Return: 1 if @c is lowercase 0 otherwise (Success)
+ *
+*/
 
 int _islower(int c)
 {
