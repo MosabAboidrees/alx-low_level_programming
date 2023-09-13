@@ -2,14 +2,16 @@
 #include "main.h"
 
 /**
- * Length_num - return the length of number
+ * Length_num - length of given number
+ *
+ * Description: return the length of number
  *
  * @num: operand number
  *
- * Return: the @length, the number of digits
+ * Return: leng
 */
 
-int Lenght_num(int num)
+int Length_num(int num)
 {
 	int leng = 0;
 
@@ -24,9 +26,11 @@ int Lenght_num(int num)
 }
 
 /**
- * main - main function
+ * main - Entry point
+ *
  * Description: a program that finds and prints the first
  * 98 Fibonacci numbers, starting with 1 and 2, followed by a new line.
+ *
  * Return: Always 0 (Success)
 */
 
@@ -40,7 +44,7 @@ int main(void)
 	{
 		if (fib_second1 > 0)
 			printf("%lu", fib_second1);
-		initial_zeros = Lenght_num(maxi) - 1 - Lenght_num(fib_first1);
+		initial_zeros = Length_num(maxi) - 1 - Length_num(fib_first1);
 		while (fib_second1 > 0 && initial_zeros > 0)
 		{
 			printf("%d", 0);
@@ -49,12 +53,10 @@ int main(void)
 		printf("%lu", fib_first1);
 
 		sum_first = (fib_first1 + fib_first2) % maxi;
-		sum_second = fib_second1 + fib_second2 + (fib_first1 + fib_first2) % maxi;
-
+		sum_second = fib_second1 + fib_second2 + (fib_first1 + fib_first2) / maxi;
 		fib_first1 = fib_first2;
-		fib_first2 = sum_first;
-
 		fib_second1 = fib_second2;
+		fib_first2 = sum_first;
 		fib_second2 = sum_second;
 
 		if (i != 98)
