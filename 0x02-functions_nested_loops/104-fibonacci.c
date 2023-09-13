@@ -49,7 +49,7 @@ int main(void)
 		sum_second = fib_second1 + fib_second2 + (fib_first1 + fib_first2) % max;
 
 		fib_first1 = fib_first2;
-		fib_first2 = sum_first
+		fib_first2 = sum_first;
 
 		fib_second1 = fib_second2;
 		fib_second2 = sum_second;
@@ -59,5 +59,5 @@ int main(void)
 		else
 			printf("\n");
 	}
-	return (0)
+	return (0);
 }
