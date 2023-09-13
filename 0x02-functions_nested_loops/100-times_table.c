@@ -20,7 +20,6 @@ void print_times_table(int n)
 				_putchar(',');
 				_putchar(' ');
 				products = num * mult;
-				
 				if (products <= 9)
 					_putchar(' ');
 				if (products <= 99)
