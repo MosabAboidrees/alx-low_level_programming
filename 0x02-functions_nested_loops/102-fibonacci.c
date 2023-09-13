@@ -25,7 +25,6 @@ int main(void)
 			printf("/n");
 		else
 			printf(", ");
-		else
 	}
 	return (0);
 }
