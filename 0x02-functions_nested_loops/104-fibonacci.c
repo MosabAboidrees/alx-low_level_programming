@@ -1,9 +1,12 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * Length_num - return the length of number
+ *
  * @num: operand number
- * Return: the length of number
+ *
+ * Return: the @length, the number of digits
 */
 
 int Lenght_num(int num)
@@ -31,7 +34,7 @@ int main(void)
 {
 	int i, initial_zeros;
 	unsigned long fib_first1 = 1, fib_first2 = 2, sum_first, sum_second = 0;
-	unsigned long max = 1000000000, fib_second1 = 0, fib_second2 = 0;
+	unsigned long max = 10000000000, fib_second1 = 0, fib_second2 = 0;
 
 	for (i = 1; i <= 98; i++)
 	{
