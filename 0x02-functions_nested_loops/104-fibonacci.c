@@ -34,13 +34,13 @@ int main(void)
 {
 	int i, initial_zeros;
 	unsigned long fib_first1 = 1, fib_first2 = 2, sum_first, sum_second = 0;
-	unsigned long max = 10000000000, fib_second1 = 0, fib_second2 = 0;
+	unsigned long maxi = 100000000, fib_second1 = 0, fib_second2 = 0;
 
 	for (i = 1; i <= 98; i++)
 	{
 		if (fib_second1 > 0)
 			printf("%lu", fib_second1);
-		initial_zeros = Lenght_num(max) - 1 - Lenght_num(fib_first1);
+		initial_zeros = Lenght_num(maxi) - 1 - Lenght_num(fib_first1);
 		while (fib_second1 > 0 && initial_zeros > 0)
 		{
 			printf("%d", 0);
@@ -48,8 +48,8 @@ int main(void)
 		}
 		printf("%lu", fib_first1);
 
-		sum_first = (fib_first1 + fib_first2) % max;
-		sum_second = fib_second1 + fib_second2 + (fib_first1 + fib_first2) % max;
+		sum_first = (fib_first1 + fib_first2) % maxi;
+		sum_second = fib_second1 + fib_second2 + (fib_first1 + fib_first2) % maxi;
 
 		fib_first1 = fib_first2;
 		fib_first2 = sum_first;
