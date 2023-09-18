@@ -14,7 +14,7 @@ int main(void)
 	char i;
 
 	srand(time(NULL));
-	for (sum = 0; sum <= 100; sum++)
+	for (sum = 0; sum <= 2645; sum++)
 	{
 		i = rand() % 128;
 		sum += i;
