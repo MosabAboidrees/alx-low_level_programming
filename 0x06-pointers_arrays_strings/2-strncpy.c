@@ -16,9 +16,8 @@ char *_strncpy(char *dest, char *src, int n)
 {
 	int b;
 
-	b = 0;
 	/**
-	 * This while loop copies characters from the src
+	 * This loop copies characters from the src
 	 * string to the dest string until one of the
 	 * following conditions is met:
 	 * b reaches the maximum limit n.
@@ -26,9 +25,10 @@ char *_strncpy(char *dest, char *src, int n)
 	 * src string, indicating the end of the source string.
 	 * Characters are copied one by one from src to dest.
 	*/
-	while (b < n && src[b] != '\0')
+	for (b = 0; b < n && src[b] != '\0'; b++)
+	{
 		dest[b] = src[b];
-	b++
+	}
 	/**
 	 * This while loop ensures that the dest string is
 	 * null-terminated if the number of characters copied (n)
