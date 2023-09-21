@@ -26,7 +26,7 @@ char *cap_string(char *str)
 	char *ptr = str;
 	int capitalize_next = 1;
 
-	while (*str != '\0')
+	while (*str)
 	{
 		if (*str == ' ' || *str == ',' ||
 		*str == ';' || *str == '.' ||
@@ -50,6 +50,14 @@ char *cap_string(char *str)
 			else if ((*str >= 65 && *str <= 90) || (*str >= 48 && *str <= 57))
 			{
 				capitalize_next = 0; /* Reset flag */
+			}
+			else
+			{
+				/* Convert uppercase letters (not first character) to lowercase */
+				if (*str >= 'A' && *str <= 'Z')
+				{
+					*str = *str + ('a' - 'A');
+				}
 			}
 		}
 		str++;  /* Move to the next character in the string */
