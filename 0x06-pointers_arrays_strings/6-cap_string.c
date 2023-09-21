@@ -5,7 +5,7 @@
  * is_separator - is used to check if a character is one of
  * the specified word separators (e.g., space, tab,
  * newline, comma, semicolon, etc.).
- * @c: The character to check.
+ * @chr: The character to check.
  *
  * Return: 1 if it's a separator, 0 otherwise.
 */
@@ -14,7 +14,7 @@ int is_separator(char chr)
 {
 	char separators[] = " \t\n,;.!?\"(){}";
 
-	for (int i = 0; separators[i] < 12; i++)
+	for (int i = 0; separators[i] < 13; i++)
 	{
 		if (chr == separators[i])
 			return (1);  /* It's a separator */
@@ -24,12 +24,12 @@ int is_separator(char chr)
 
 /**
  * is_lower - checks if the current character is lowercase letter
- * @c: character to check
+ * @ch: character to check
  * Return: 1 if character lowercase
- */ 
-int is_lower(char chr)
+*/
+int is_lower(char ch)
 {
-	return (chr >= 'a' && chr <= 'z');
+	return (ch >= 'a' && ch <= 'z');
 }
 
 /**
@@ -63,8 +63,9 @@ char *cap_string(char *str)
 			capitalize_next = 0;
 		}
 		/* Check if the current character is a word separator */
-		else (is_separator(*ptr))
+		else
 		{
+			(is_separator(*ptr))
 			/* Reset flag if the character is not a separator */
 			capitalize_next = 0;
 		}
