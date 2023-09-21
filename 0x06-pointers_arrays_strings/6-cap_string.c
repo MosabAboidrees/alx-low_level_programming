@@ -9,16 +9,26 @@
  * Return: 1 if it's a separator, 0 otherwise.
 */
 
-int is_separator(char c)
+int is_separator(char chr)
 {
 	char separators[] = " \t\n,;.!?\"(){}";
 
 	for (int i = 0; separators[i] < 12; i++)
 	{
-		if (c == separators[i])
+		if (chr == separators[i])
 			return (1);  /* It's a separator */
 	}
 	return (0);  /* It's not a separator */
+}
+
+/**
+ * is_lower - checks if the current character is lowercase letter
+ * @c: character to check
+ * Return: 1 if character lowercase
+ */ 
+int is_lower(char chr)
+{
+	return (chr >= 'a' && chr <= 'z');
 }
 
 /**
@@ -39,18 +49,20 @@ char *cap_string(char *str)
 
 	while (*ptr)
 	{
-		if (capitalize_next && (*ptr >= 'a' && *ptr <= 'z'))
-		{
-			/* Capitalize the character */
-			*ptr = *ptr - 'a' + 'A';
-		}
-		/* Check if the current character is a word separator */
 		if (is_separator(*ptr))
 		{
 			/* Set flag to capitalize the next character */
 			capitalize_next = 1;
 		}
-		else
+		else if (capitalize_next && is_lower(*ptr))
+		{
+			/* Capitalize the character */
+			*ptr = *ptr - 'a' + 'A';
+			/* Reset flag if the character is not a separator */
+			capitalize_next = 0;
+		}
+		/* Check if the current character is a word separator */
+		else (is_separator(*ptr))
 		{
 			/* Reset flag if the character is not a separator */
 			capitalize_next = 0;
