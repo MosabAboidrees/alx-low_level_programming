@@ -73,7 +73,6 @@ char *cap_string(char *str)
 		/* Check if the current character is a word separator */
 		else
 		{
-			(is_separator(*str))
 			/* Reset flag if the character is not a separator */
 			capitalize_next = 0;
 		}
