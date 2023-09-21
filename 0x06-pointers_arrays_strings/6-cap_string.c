@@ -28,7 +28,8 @@
 char *cap_string(char *str)
 {
 	char *ptr = str;
-	int capitalize_next = 1
+	int capitalize_next = 1;
+
 		while (*str)
 		{
 			if (*str == 32 || *str == ',' ||
