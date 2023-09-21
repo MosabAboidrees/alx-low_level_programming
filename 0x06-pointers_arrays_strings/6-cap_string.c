@@ -1,21 +1,6 @@
 #include "main.h"
 
 /**
- * is_lower - checks if the current character is lowercase letter
- * @ch: character to check
- * Return: 1 if character lowercase
-*/
-
-int is_lower(char ch)
-{
-	/* Check if the character is a lowercase letter before capitalizing it */
-	if (ch >= 'a' && ch <= 'z')
-		/* Convert to uppercase by subtracting the ASCII difference */
-		ch = ch - ('a' - 'A');
-	return (1);
-}
-
-/**
  * cap_string - Capitalizes words in a string
  * based on specified separators.
  * This function takes an input string and
@@ -59,6 +44,12 @@ char *cap_string(char *str)
 			}
 			else if (capitalize_next && is_lower(*str))
 			{
+				/* Check if the character is a lowercase letter before capitalizing it */
+				if (*str >= 'a' && *str <= 'z')
+				{
+					/* Convert to uppercase by subtracting the ASCII difference */
+					*str = *str - ('a' - 'A');
+				}
 				/* Capitalize the current character */
 				*str = *str - 32;
 				capitalize_next = 0; /* Reset flag */
