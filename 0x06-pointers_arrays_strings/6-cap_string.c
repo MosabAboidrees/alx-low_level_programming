@@ -51,14 +51,6 @@ char *cap_string(char *str)
 			{
 				capitalize_next = 0; /* Reset flag */
 			}
-			else
-			{
-				/* Convert uppercase letters (not first character) to lowercase */
-				if (*str >= 'A' && *str <= 'Z')
-				{
-					*str = *str + ('a' - 'A');
-				}
-			}
 		}
 		str++;  /* Move to the next character in the string */
 	}
