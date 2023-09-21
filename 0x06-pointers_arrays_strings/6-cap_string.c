@@ -48,11 +48,11 @@ char *cap_string(char *str)
 				*str = *str - ('a' - 'A');
 			}
 			else if
-			{
 				(*str >= 65 && *str <= 90) ||
 				(*str >= 48 && *str <= 57)
-				capitalize_next = 0; /* Reset flag */
-			}
+				{
+					capitalize_next = 0; /* Reset flag */
+				}
 		}
 		str++;  /* Move to the next character in the string */
 	}
