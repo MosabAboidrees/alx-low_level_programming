@@ -2,81 +2,53 @@
 #include <stdio.h>
 
 /**
- * is_separator - is used to check if a character is one of
- * the specified word separators (e.g., space, tab,
- * newline, comma, semicolon, etc.).
- * @chr: The character to check.
- *
- * Return: 1 if it's a separator, 0 otherwise.
-*/
-
-int is_separator(char chr)
-{
-	char separators[] = " \t\n,;.!?\"(){}";
-	int index;
-
-	for (index = 0; separators[index] < 13; index++)
-	{
-		if (chr == separators[index])
-			return (1);  /* It's a separator */
-	}
-	return (0);  /* It's not a separator */
-}
-
-/**
- * is_lower - checks if the current character is lowercase letter
- * @ch: character to check
- * Return: 1 if character lowercase
-*/
-int is_lower(char ch)
-{
-	return (ch >= 'a' && ch <= 'z');
-}
-
-/**
- * cap_string - a function takes a pointer to a string
- * (char *str) as an argument. It initializes a pointer ptr
- * to point to the same string (the beginning of the string).
- * It also initializes a variable capitalize_next to 1,
- * which indicates whether the next character should be capitalized.
+ * cap_string - Capitalizes words in a string
+ * based on specified separators.
+ * This function takes an input string and
+ * capitalizes the first letter of each word in
+ * the string. Words are separated by spaces,
+ * tabs, newlines, commas, semicolons, periods,
+ * exclamation marks, question marks, double quotes,
+ * parentheses, curly braces, or any of the specified
+ * separators. The input string is modified in-place,
+ * and the function returns the address of the
+ * modified string.
  *
  * @str: The input string to be modified.
- * ptr: pointer to the original string.
+ * ptr: a pointer to the original string
  * capitalize_next: Indicates whether the
- * next character should be capitalized.
+ * next character should be capitalized
  *
  * Return: Pointer to the modified string (same as input).
  *
  * By: MOSAB ABOIDREES ALTRAIFI YOUSIF
- * mosab_mahala@yahoo.com
+ *
 */
 
 char *cap_string(char *str)
 {
 	char *ptr = str;
-	int capitalize_next = 1;
-
-	while (*str)
-	{
-		if (is_separator(*str))
+	int capitalize_next = 1
+		while (*str)
 		{
-			/* Set flag to capitalize the next character */
-			capitalize_next = 1;
+			if (*str == 32 || *str == ',' ||
+			*str == ';' || *str == '.' ||
+			*str == '!' || *str == '?' ||
+			*str == '"' || *str == '(' ||
+			*str == ')' || *str == '{' ||
+			*str == '}' || *str == '\0' ||
+			*str == 9 || *str == '\t')
+			{
+				/* Set flag to capitalize the next character */
+				capitalize_next = 1;
+			}
+			else if (capitalize_next)
+			{
+				/* Capitalize the current character */
+				*str = *str - ' ';
+				capitalize_next = 0; /* Reset flag */
+			}
+			str++;  /* Move to the next character in the string */
 		}
-		else if (capitalize_next && is_lower(*srt))
-		{
-			/* Capitalize the character */
-			*str = *str - 'a' + 'A';
-			/* Reset flag if the character is not a separator */
-			capitalize_next = 0;
-		}
-		/* Check if the current character is a word separator */
-		else
-		{
-			/* Reset flag if the character is not a separator */
-			capitalize_next = 0;
-		}
-		str++;  /*Move to the next character in the string */
-	}
 	return (ptr);  /* Return the modified string */
 }
