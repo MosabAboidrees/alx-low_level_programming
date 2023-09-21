@@ -50,8 +50,6 @@ char *cap_string(char *str)
 					/* Convert to uppercase by subtracting the ASCII difference */
 					*str = *str - ('a' - 'A');
 				}
-				/* Capitalize the current character */
-				*str = *str - 32;
 				capitalize_next = 0; /* Reset flag */
 			}
 			str++;  /* Move to the next character in the string */
