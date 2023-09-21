@@ -37,7 +37,7 @@ char *cap_string(char *str)
 			*str == '"' || *str == '(' ||
 			*str == ')' || *str == '{' ||
 			*str == '}' || *str == '\0' ||
-			*str == 9 || *str == '\t')
+			*str == 9 || *str == '\n')
 			{
 				/* Set flag to capitalize the next character */
 				capitalize_next = 1;
