@@ -2,6 +2,17 @@
 #include <stdio.h>
 
 /**
+ * is_lower - checks if the current character is lowercase letter
+ * @ch: character to check
+ * Return: 1 if character lowercase
+*/
+
+int is_lower(char ch)
+{
+	return (ch >= 'a' && ch <= 'z');
+}
+
+/**
  * cap_string - Capitalizes words in a string
  * based on specified separators.
  * This function takes an input string and
@@ -43,10 +54,10 @@ char *cap_string(char *str)
 				/* Set flag to capitalize the next character */
 				capitalize_next = 1;
 			}
-			else if (capitalize_next)
+			else if (capitalize_next && is_lower(*str))
 			{
 				/* Capitalize the current character */
-				*str = *str - ' ';
+				*str = *str - 32;
 				capitalize_next = 0; /* Reset flag */
 			}
 			str++;  /* Move to the next character in the string */
