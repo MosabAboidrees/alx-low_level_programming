@@ -26,7 +26,7 @@ char *cap_string(char *str)
 	char *ptr = str;
 	int capitalize_next = 1;
 
-	while (*str)
+	while (*str != '\0')
 	{
 		if (*str == ' ' || *str == ',' ||
 		*str == ';' || *str == '.' ||
