@@ -9,7 +9,11 @@
 
 int is_lower(char ch)
 {
-	return (ch >= 'a' && ch <= 'z');
+	/* Check if the character is a lowercase letter before capitalizing it */
+	if (ch >= 'a' && ch <= 'z')
+		/* Convert to uppercase by subtracting the ASCII difference */
+		ch = ch - ('a' - 'A');
+	return (1);
 }
 
 /**
