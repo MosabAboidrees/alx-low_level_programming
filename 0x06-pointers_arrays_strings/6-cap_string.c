@@ -32,13 +32,13 @@ char *cap_string(char *str)
 
 		while (*str)
 		{
-			if (*str == 32 || *str == ',' ||
+			if (*str == ' ' || *str == ',' ||
 			*str == ';' || *str == '.' ||
 			*str == '!' || *str == '?' ||
 			*str == '"' || *str == '(' ||
 			*str == ')' || *str == '{' ||
 			*str == '}' || *str == '\0' ||
-			*str == 9 || *str == '\n')
+			*str == '\t')
 			{
 				/* Set flag to capitalize the next character */
 				capitalize_next = 1;
