@@ -14,9 +14,6 @@
  * modified string.
  *
  * @str: The input string to be modified.
- * ptr: a pointer to the original string
- * capitalize_next: Indicates whether the
- * next character should be capitalized
  *
  * Return: Pointer to the modified string (same as input).
  *
@@ -26,37 +23,33 @@
 
 char *cap_string(char *str)
 {
-	char *ptr = str;
-	int capitalize_next, index, sep_indx;
-	char separa[] = ",;.!?(){}\n\t\" ";
+	int index = 0;
+	int sep_indx;
+	char separa[] = " \t\n,;.!?\"(){}";
 
-	for (index = 0, capitalize_next = 0; *str != '\0'; index++)
+	for (index = 0; *(str + index) != '\0'; index++)
 	{
 		/* Check if the character is a lowercase letter before capitalizing it */
-		if (*str >= 'a' && *str <= 'z')
+		if (*(str + index) >= 'a' && *(str + index) <= 'z')
 		{
-			/* Set flag to capitalize the next character */
-			capitalize_next = 1;
-		}
-		for (sep_indx = 0; separa[separa] != '\0'; sep_indx++)
-		{
-			if (separa[y] == *str)
-			capitalize_next = 1;
-		}
-		if (capitalize_next)
-		{
-			/* Check if the character is a lowercase letter before capitalizing it */
-			if (*str >= 'a' && *str <= 'z')
+			/* if it's  null character change its value to capital */
+			if index == 0
 			{
-				/* Convert to uppercase by subtracting the ASCII difference */
-				*str = *str - ('a' - 'A');
-				capitalize_next = 0; /* Reset flag */
+				*(str + index) -= 'a' - 'A';
 			}
-			else if
-				(*str >= 65 && *str <= 90) ||
-				(*str >= 48 && *str <= 57)
-				capitalize_next = 0; /* Reset flag */
+			else
+			{
+				/* cheack for all  separators */
+				for (sep_indx = 0; sep_indx <= 12; sep_indx++)
+				{
+					/* if it's separator change the next charactor's value to capital */
+					if (separa[sep_indx] == *(str + index - 1))
+					{
+						*(str + index) -= 'a' - 'A';
+					}
+				}
+			}
 		}
 	}
-	return (ptr);  /* Return the modified string */
+	return (str);  /* Return the modified string */
 }
