@@ -26,20 +26,20 @@
 char *leet(char *p)
 {
 	char *ptr = p;
-	char Letters[] = "AEOTL";
-	char b[] = "43071";
-	int i, j;
+	char Letters[] = {'A', 'E', 'O', 'T', 'L'};
+	char b[] = {4, 3, 0, 7, 1};
+	int index;
 	int letters_count = sizeof(Letters) / sizeof(Letters[0]);
 
 	while (*p)
 	{
-		for (i = 0; i < letters_count; i++)
+		for (index = 0; index < letters_count; index++)
 		{
 			/* Check if the character matches one of the letters */
-			if (*p == Letters[i] || *p == Letters[i] + 32)
+			if (*p == Letters[index] || *p == Letters[index] + 32)
 			{
 				/* Replace the character with it's corresponding lower case */
-				*p = b[i] + '0';
+				*p = b[index] + '0';
 				break; /* Exit the loop once a replacement is made */
 			}
 		}
