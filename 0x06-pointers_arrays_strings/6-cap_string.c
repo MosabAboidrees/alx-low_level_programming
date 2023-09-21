@@ -13,7 +13,7 @@ int is_separator(char c)
 {
 	char separators[] = " \t\n,;.!?\"(){}";
 
-	for (int i = 0; separators[i] != '\0'; i++)
+	for (int i = 0; separators[i] < 12; i++)
 	{
 		if (c == separators[i])
 			return (1);  /* It's a separator */
@@ -37,7 +37,7 @@ char *cap_string(char *str)
 	int capitalize_next = 1; /*Indicates whether the*/
 	/*next character should be capitalized*/
 
-	while (*ptr != '\0')
+	while (*ptr)
 	{
 		if (capitalize_next && (*ptr >= 'a' && *ptr <= 'z'))
 		{
