@@ -42,7 +42,7 @@ char *cap_string(char *str)
 				/* Set flag to capitalize the next character */
 				capitalize_next = 1;
 			}
-			else if (capitalize_next && is_lower(*str))
+			else if (capitalize_next)
 			{
 				/* Check if the character is a lowercase letter before capitalizing it */
 				if (*str >= 'a' && *str <= 'z')
