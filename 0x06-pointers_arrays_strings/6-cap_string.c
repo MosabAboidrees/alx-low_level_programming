@@ -50,7 +50,12 @@ char *cap_string(char *str)
 					/* Convert to uppercase by subtracting the ASCII difference */
 					*str = *str - ('a' - 'A');
 				}
-				capitalize_next = 0; /* Reset flag */
+				else if
+				{
+					(*str >= 65 && *str <= 90) ||
+					(*str >= 48 && *str <= 57)
+					capitalize_next = 0; /* Reset flag */
+				}
 			}
 			str++;  /* Move to the next character in the string */
 		}
