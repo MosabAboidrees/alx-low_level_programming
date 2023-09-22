@@ -9,18 +9,14 @@ void reverse_string(char *str)
 	char temp;
 
 	while (str[j] != '\0') /*Calculate the length of the strin*/
-	{
 		j++;
-	}
 	j--;/*Adjust to point to the last character*/
 	while (i < j)
-	{
 		temp = str[i];
 		str[i] = str[j];
 		str[j] = temp;
 		i++;
 		j--;
-	}
 }
 /**
  * infinite_add - Adds two numbers represented as strings.
