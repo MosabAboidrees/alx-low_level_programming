@@ -34,11 +34,11 @@ char *cap_string(char *chr)
 			chr[idx - 1] == '"' || chr[idx - 1] == '(' ||
 			chr[idx - 1] == ')' || chr[idx - 1] == '{' ||
 			chr[idx - 1] == '}' || chr[idx - 1] == '\0')
-			else if (chr[idx - 1] == '\t')
-			{
-				chr[idx - 1] = '\t' + 23;
-				chr[idx] = chr[idx] - ('a' - 'A');
-			}
+				if (chr[idx - 1] == '\t')
+				{
+					chr[idx - 1] = '\t' + 23;
+					chr[idx] = chr[idx] - ('a' - 'A');
+				}
 			chr[idx] = chr[idx] - ('a' - 'A');
 		}
 		idx++; /* continues to the next character */
