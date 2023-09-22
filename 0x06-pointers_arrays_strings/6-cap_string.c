@@ -28,7 +28,7 @@ char *cap_string(char *chr)
 			/* converting it to uppercase*/
 			if (idx == 0)
 			{
-				chr[idx] = chr[idx] - ' ';
+				chr[idx] = chr[idx] - ('a' - 'A');
 			}
 			/**
 			 * 2. If the previous character is a separators, it
@@ -44,7 +44,7 @@ char *cap_string(char *chr)
 			chr[idx - 1] == ')' || chr[idx - 1] == '{' ||
 			chr[idx - 1] == '}' || chr[idx - 1] == '\0')
 			{
-				chr[idx] = chr[idx] - 32;
+				chr[idx] = chr[idx] - ('a' - 'A');
 			}
 		}
 		idx++; /* continues to the next character */
