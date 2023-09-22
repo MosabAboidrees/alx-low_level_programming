@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * cap_string - a function that takes a pointer to
  * a string chr to capitalize the first letter
