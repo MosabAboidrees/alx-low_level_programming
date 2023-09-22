@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdio.h>
-
 /**
  * cap_string - a function that takes a pointer to
  * a string chr to capitalize the first letter
@@ -23,19 +22,11 @@ char *cap_string(char *chr)
 		{
 			/* Checks if the current character should be*/
 			/* capitalized based on two conditions:*/
-			/* 1. If idx is 0 (first character) capitalizes the*/
-			/* character by subtracting ' ' from its ASCII value,*/
-			/* converting it to uppercase*/
+			/* 1. If idx is 0 (first character) capitalizes it*/
 			if (idx == 0)
-			{
 				chr[idx] = chr[idx] - ('a' - 'A');
-			}
-			/**
-			 * 2. If the previous character is a separators, it
-			 * means the current character is the first character
-			 * of a word, so it capitalizes it in the same way.
-			 * str[idx - 1] is the brevious charactor
-			*/
+			/* 2. If the previous character is a separators*/
+			/*(first character of a word) capitalizes it.*/
 			if (chr[idx - 1] == ' ' || chr[idx - 1] == '\t' ||
 			chr[idx - 1] == '\n' || chr[idx - 1] == ',' ||
 			chr[idx - 1] == ';' || chr[idx - 1] == '.' ||
@@ -43,9 +34,13 @@ char *cap_string(char *chr)
 			chr[idx - 1] == '"' || chr[idx - 1] == '(' ||
 			chr[idx - 1] == ')' || chr[idx - 1] == '{' ||
 			chr[idx - 1] == '}' || chr[idx - 1] == '\0')
-			{
-				chr[idx] = chr[idx] - ('a' - 'A');
-			}
+				if (chr[idx - 1] == '\t')
+				{
+					chr[idx - 1] = '\t' + 23;
+					chr[idx] = chr[idx] - ('a' - 'A');
+				}
+				else
+					chr[idx] = chr[idx] - ('a' - 'A');
 		}
 		idx++; /* continues to the next character */
 	}
