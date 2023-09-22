@@ -27,7 +27,7 @@ char *cap_string(char *chr)
 				chr[idx] = chr[idx] - ('a' - 'A');
 			/* 2. If the previous character is a separators*/
 			/*(first character of a word) capitalizes it.*/
-			if (chr[idx - 1] == ' ' ||
+			if (chr[idx - 1] == ' ' || chr[idx - 1] == '\t' ||
 			chr[idx - 1] == '\n' || chr[idx - 1] == ',' ||
 			chr[idx - 1] == ';' || chr[idx - 1] == '.' ||
 			chr[idx - 1] == '!' || chr[idx - 1] == '?' ||
