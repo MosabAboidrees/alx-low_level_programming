@@ -24,7 +24,7 @@ char *rot13(char *chr_ptr)
 		while (idx < 52)
 		{
 			/* Check if the current character matches a character in ROT13_input */
-			if *chr_ptr == ROT13_input[idx])
+			if (*chr_ptr == ROT13_input[idx])
 			{
 				/* Replace the character with its ROT13 equivalent */
 				*chr_ptr = ROT13_output[idx];
