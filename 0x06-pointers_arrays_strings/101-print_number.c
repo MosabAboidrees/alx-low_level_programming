@@ -2,7 +2,8 @@
 
 /**
  * print_number - Prints an integer using only _putchar.
- * @integ: The integer to be printed.
+ * @num: The integer to be printed.
+ * @integ: used to convert negative numbers
  *
  * Description: This function takes an integer as input and prints it
  * character by character using the _putchar function.
@@ -12,12 +13,15 @@
  * mosab_mahala@yahoo.com
 */
 
-void print_number(int integ)
+void print_number(int num)
 {
-	if (integ < 0)
+	unsigned int integ; /* Used for handling negative numbers */
+
+	integ = num;
+	if (num < 0)
 	{
 		_putchar('-'); /* Print '-' for negative numbers */
-		integ = -integ;  /* Convert negative number to positive */
+		integ = -num;  /* Convert negative number to positive */
 	}
 	if (integ / 10 != 0)
 	{
