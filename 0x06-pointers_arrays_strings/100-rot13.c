@@ -13,27 +13,28 @@
 char *rot13(char *chr_ptr)
 {
 	int idx;
+	int idx_in = 0;
 	char ROT13_input[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char ROT13_output[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	/* Loop through each character in the input string */
-	while (*chr_ptr)
+	while (chr_ptr[idx_in] != '\0')
 	{
 		idx = 0;
 		/* Iterate through the ROT13 encoding tables */
 		while (idx < 52)
 		{
 			/* Check if the current character matches a character in ROT13_input */
-			if (*chr_ptr == ROT13_input[idx])
+			if (chr_ptr[idx_in] == ROT13_input[idx])
 			{
 				/* Replace the character with its ROT13 equivalent */
-				*chr_ptr = ROT13_output[idx];
+				chr_ptr[idx_in] = ROT13_output[idx];
 				/* Exit the loop as the character is found and replaced */
 				break;
 			}
 			idx++;
 		}
-		chr_ptr++;
+		idx_in++;
 	}
 	/* Return a pointer to the encoded string */
 	return (chr_ptr);
