@@ -25,11 +25,6 @@ char *cap_string(char *chr)
 			/* 1. If idx is 0 (first character) capitalizes it*/
 			if (idx == 0)
 				chr[idx] = chr[idx] - ('a' - 'A');
-			else if (chr[idx - 1] == '\t')
-			{
-				chr[idx - 1] = '\t' + 23;
-				chr[idx] = chr[idx] - ('a' - 'A');
-			}
 			/* 2. If the previous character is a separators*/
 			/*(first character of a word) capitalizes it.*/
 			if (chr[idx - 1] == ' ' ||
@@ -39,7 +34,12 @@ char *cap_string(char *chr)
 			chr[idx - 1] == '"' || chr[idx - 1] == '(' ||
 			chr[idx - 1] == ')' || chr[idx - 1] == '{' ||
 			chr[idx - 1] == '}' || chr[idx - 1] == '\0')
+			else if (chr[idx - 1] == '\t')
+			{
+				chr[idx - 1] = '\t' + 23;
 				chr[idx] = chr[idx] - ('a' - 'A');
+			}
+			chr[idx] = chr[idx] - ('a' - 'A');
 		}
 		idx++; /* continues to the next character */
 	}
