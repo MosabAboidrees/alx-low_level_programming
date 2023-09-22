@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 /**
  * reverse_string - Reverses a null-terminated string in-place.
