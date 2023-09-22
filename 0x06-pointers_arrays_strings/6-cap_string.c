@@ -1,58 +1,53 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * cap_string - Capitalizes words in a string
- * based on specified separators.
- * This function takes an input string and
- * capitalizes the first letter of each word in
- * the string. Words are separated by spaces,
- * tabs, newlines, commas, semicolons, periods,
- * exclamation marks, question marks, double quotes,
- * parentheses, curly braces, or any of the specified
- * separators. The input string is modified in-place,
- * and the function returns the address of the
- * modified string.
- *
- * @str: The input string to be modified.
- *
- * Return: Pointer to the modified string (same as input).
- *
+ * cap_string - a function that takes a pointer to
+ * a string chr to capitalize the first letter
+ * of each word in the input string.
+ * @chr: input string
+ * Return: pointer chr
  * By: MOSAB ABOIDREES ALTRAIFI YOUSIF
- *
-*/
-
-char *cap_string(char *str)
+ * mosab_mahala@yahoo.com
+ */
+char *cap_string(char *chr)
 {
-	char *ptr = str;
-	int capitalize_next = 1;
+	int idx;
 
-	while (*str)
+	 /* iterates through the input string until it encounters */
+	 /* the null terminator '\0' (end of the string)*/
+	while (chr[idx] != '\0')
 	{
-		if (*str == ' ' || *str == ',' ||
-		*str == ';' || *str == '.' ||
-		*str == '!' || *str == '?' ||
-		*str == '"' || *str == '(' ||
-		*str == ')' || *str == '{' ||
-		*str == '}' || *str == '\0' ||
-		*str == '\t')
+		 /* If lowercase proceeds to the next step.*/
+		if (chr[idx] >= 97 && chr[idx] <= 122)
 		{
-			/* Set flag to capitalize the next character */
-			capitalize_next = 1;
-		}
-		else if (capitalize_next)
-		{
-			/* Check if the character is a lowercase letter before capitalizing it */
-			if (*str >= 'a' && *str <= 'z')
+			/* Checks if the current character should be*/
+			/* capitalized based on two conditions:*/
+			/* 1. If idx is 0 (first character) capitalizes the*/
+			/* character by subtracting ' ' from its ASCII value,*/
+			/* converting it to uppercase*/
+			if (idx == 0)
 			{
-				/* Convert to uppercase by subtracting the ASCII difference */
-				*str = *str - ('a' - 'A');
+				chr[idx] = chr[idx] - ' ';
 			}
-			else if ((*str >= 65 && *str <= 90) || (*str >= 48 && *str <= 57))
+			/**
+			 * 2. If the previous character is a separators, it
+			 * means the current character is the first character
+			 * of a word, so it capitalizes it in the same way.
+			 * str[idx - 1] is the brevious charactor
+			*/
+			if (chr[idx - 1] == ' ' || chr[idx - 1] == '\t' ||
+			chr[idx - 1] == '\n' || chr[idx - 1] == ',' ||
+			chr[idx - 1] == ';' || chr[idx - 1] == '.' ||
+			chr[idx - 1] == '!' || chr[idx - 1] == '?' ||
+			chr[idx - 1] == '"' || chr[idx - 1] == '(' ||
+			chr[idx - 1] == ')' || chr[idx - 1] == '{' ||
+			chr[idx - 1] == '}' || chr[idx - 1] == '\0')
 			{
-				capitalize_next = 0; /* Reset flag */
+				chr[idx] = chr[idx] - 32;
 			}
 		}
-		str++;  /* Move to the next character in the string */
+		idx++; /* continues to the next character */
 	}
-	return (ptr);  /* Return the modified string */
+	return (chr);
 }
