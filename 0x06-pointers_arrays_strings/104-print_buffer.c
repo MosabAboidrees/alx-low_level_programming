@@ -68,7 +68,7 @@ void print_buffer(char *buffer, int size)
 	if (size <= 0)
 	{
 		printf("\n"); /*Print a newline if size is 0 or less*/
-		return (0);
+		return;
 	}
 	for (start = 0; start < size; start += 10)
 	{
