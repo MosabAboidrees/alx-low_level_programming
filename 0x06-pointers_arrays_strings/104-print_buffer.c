@@ -47,7 +47,7 @@ void print_ASCII(char *b, int start, int end)
 
 	for (idx = 0; idx < end; idx++)
 	{
-		ch = *(buffer + idx + start);
+		ch = *(b + idx + start);
 		if (!is_ASCII_Printable(ch))
 			ch = '.'; /*Replace non-printable characters with '.'*/
 		printf("%c", ch); /* Print the character*/
