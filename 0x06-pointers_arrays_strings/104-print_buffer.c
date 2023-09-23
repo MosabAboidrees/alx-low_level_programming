@@ -63,14 +63,14 @@ void print_ASCII(char *buffer, int start, int end)
  */
 void print_buffer(char *buffer, int size)
 {
-	int start, end;
+	int start = 0, end;
 
 	if (size <= 0)
 	{
 		printf("\n"); /*Print a newline if size is 0 or less*/
 		return;
 	}
-	for (start = 0; start < size; start += 10)
+	while (start < size)
 	{
 		if (size - start < 10)
 		{
@@ -84,5 +84,6 @@ void print_buffer(char *buffer, int size)
 		print_Hexadecimal(buffer, start, end);
 		print_ASCII(buffer, start, end);
 		printf("\n");
+		start += 10;
 	}
 }
