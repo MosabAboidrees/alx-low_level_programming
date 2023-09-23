@@ -9,7 +9,7 @@
  */
 int is_ASCII_Printable(int chr)
 {
-	return (chr > 32 && chr <= 126);
+	return (chr >= 32 && chr <= 126);
 }
 /**
  * print_Hexadecimal - Prints the hexadecimal representation
