@@ -14,27 +14,28 @@ char *cap_string(char *chr)
 
 	/* iterates through the input string until it encounters */
 	/* the null terminator '\0' (end of the string)*/
-	for (idx = 0; chr[idx] != '\0'; idx++)
+	while (chr[idx] != '\0')
 	{
 		/* If lowercase proceeds to the next step.*/
-		while (!(chr[idx] >= 97 && chr[idx] <= 122))
-			idx++;
-		/*If the previous character is a separators*/
-		/*(first character of a word) capitalizes it.*/
-		if (chr[idx - 1] == ' ' || chr[idx - 1] == '\t' ||
-		chr[idx - 1] == '\n' || chr[idx - 1] == ',' ||
-		chr[idx - 1] == ';' || chr[idx - 1] == '.' ||
-		chr[idx - 1] == '!' || chr[idx - 1] == '?' ||
-		chr[idx - 1] == '"' || chr[idx - 1] == '(' ||
-		chr[idx - 1] == ')' || chr[idx - 1] == '{' ||
-		chr[idx - 1] == '}' || idx == 0)
-			if (chr[idx - 1] == '\t')
-			{
-				chr[idx - 1] = '\t' + 23;
+		if (!(chr[idx] >= 97 && chr[idx] <= 122))
+		{
+			/* Checks if the current character should be*/
+			/* capitalized based on two conditions:*/
+			/* 1. If idx is 0 (first character) capitalizes it*/
+			if (idx == 0)
 				chr[idx] = chr[idx] - ('a' - 'A');
-			}
-			else
+			/* 2. If the previous character is a separators*/
+			/*(first character of a word) capitalizes it.*/
+			if (chr[idx - 1] == ' ' || chr[idx - 1] == '\t' ||
+			chr[idx - 1] == '\n' || chr[idx - 1] == ',' ||
+			chr[idx - 1] == ';' || chr[idx - 1] == '.' ||
+			chr[idx - 1] == '!' || chr[idx - 1] == '?' ||
+			chr[idx - 1] == '"' || chr[idx - 1] == '(' ||
+			chr[idx - 1] == ')' || chr[idx - 1] == '{' ||
+			chr[idx - 1] == '}' || chr[idx - 1] == '\0')
 				chr[idx] = chr[idx] - ('a' - 'A');
+		}
+		idx++; /* continues to the next character */
 	}
 	return (chr);
 }
