@@ -17,7 +17,7 @@ char *cap_string(char *chr)
 	while (chr[idx] != '\0')
 	{
 		/* If lowercase proceeds to the next step.*/
-		if (!(chr[idx] >= 97 && chr[idx] <= 122))
+		if (chr[idx] >= 97 && chr[idx] <= 122)
 		{
 			/* Checks if the current character should be*/
 			/* capitalized based on two conditions:*/
