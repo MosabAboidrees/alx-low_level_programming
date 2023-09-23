@@ -2,10 +2,10 @@
 #include <stdio.h>
 /**
  * is_ASCII_Printable - This function checks if the given
- * ASCII value 'n' represents a printable character within
+ * ASCII value 'chr' represents a printable character within
  * the ASCII range.
  * @chr: The ASCII value to check.
- * Returns 1 if it's printable, 0 otherwise.
+ * Return: 1 if it's printable, 0 otherwise.
  */
 int is_ASCII_Printable(int chr)
 {
@@ -83,7 +83,7 @@ void print_buffer(char *b, int size)
 		printf("%08x: ", start); /*Print the offset in hexadecimal*/
 		print_Hexadecimal(b, start, end);
 		print_ASCII(b, start, end);
-		printf("\n");
+		_putchar("\n");
 		start += 10;
 	}
 }
