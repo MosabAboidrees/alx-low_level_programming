@@ -4,12 +4,12 @@
  * is_ASCII_Printable - This function checks if the given
  * ASCII value 'n' represents a printable character within
  * the ASCII range (from 32 to 126).
- * @n: The ASCII value to check.
+ * @chr: The ASCII value to check.
  * Returns 1 if it's printable, 0 otherwise.
  */
-int is_ASCII_Printable(int n)
+int is_ASCII_Printable(int chr)
 {
-	return (n >= 32 && n <= 126);
+	return (chr < 32 || chr > 132);
 }
 /**
  * print_Hexadecimal - Prints the hexadecimal representation
@@ -21,17 +21,16 @@ int is_ASCII_Printable(int n)
  */
 void print_Hexadecimal(char *buffer, int start, int end)
 {
-	int i = 0;
+	int idx;
 
-	while (i < 10)
+	for (idx = 0; idx < 10; idx++)
 	{
-		if (i < end)
-			printf("%02x", *(buffer + start + i)); /* Print two hexadecimal digits*/
+		if (idx < end)
+			printf("%02x", *(buffer + start + idx)); /* Print two hexadecimal digits*/
 		else
 			printf("  "); /* Pad with spaces for incomplete lines*/
-		if (i % 2)
+		if (idx % 2)
 			printf(" "); /* Add a space every two bytes*/
-		i++;
 	}
 }
 /**
@@ -44,15 +43,14 @@ void print_Hexadecimal(char *buffer, int start, int end)
  */
 void print_ASCII(char *buffer, int start, int end)
 {
-	int ch, i = 0;
+	int ch, idx;
 
-	while (i < end)
+	for (idx = 0; idx < end; idx++)
 	{
-		ch = *(buffer + i + start);
+		ch = *(buffer + idx + start);
 		if (!is_ASCII_Printable(ch))
 			ch = '.'; /*Replace non-printable characters with '.'*/
 		printf("%c", ch); /* Print the character*/
-		i++;
 	}
 }
 /**
@@ -67,26 +65,24 @@ void print_buffer(char *buffer, int size)
 {
 	int start, end;
 
-	if (size > 0)
-	{
-		for (start = 0; start < size; start += 10)
-		{
-			if (size - start < 10)
-			{
-				end = size - start; /*number of bytes to print in this iteration*/
-			}
-			else
-			{
-				end = 10;
-			}
-			printf("%08x: ", start); /*Print the offset in hexadecimal*/
-			print_Hexadecimal(buffer, start, end);
-			print_ASCII(buffer, start, end);
-			printf("\n");
-		}
-	}
-	else
+	if (size <= 0)
 	{
 		printf("\n"); /*Print a newline if size is 0 or less*/
+		return (0);
+	}
+	for (start = 0; start < size; start += 10)
+	{
+		if (size - start < 10)
+		{
+			end = size - start; /*number of bytes to print in this iteration*/
+		}
+		else
+		{
+			end = 10;
+		}
+		printf("%08x: ", start); /*Print the offset in hexadecimal*/
+		print_Hexadecimal(buffer, start, end);
+		print_ASCII(buffer, start, end);
+		printf("\n");
 	}
 }
