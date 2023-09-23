@@ -3,7 +3,7 @@
 /**
  * is_ASCII_Printable - This function checks if the given
  * ASCII value 'n' represents a printable character within
- * the ASCII range (from 32 to 126).
+ * the ASCII range.
  * @chr: The ASCII value to check.
  * Returns 1 if it's printable, 0 otherwise.
  */
@@ -48,7 +48,7 @@ void print_ASCII(char *buffer, int start, int end)
 	for (idx = 0; idx < end; idx++)
 	{
 		ch = *(buffer + idx + start);
-		if (!is_ASCII_Printable(ch))
+		if (is_ASCII_Printable(ch))
 			ch = '.'; /*Replace non-printable characters with '.'*/
 		printf("%c", ch); /* Print the character*/
 	}
