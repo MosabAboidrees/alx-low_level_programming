@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * is_ASCII_Printable - This function checks if the given
  * ASCII value 'chr' represents a printable character within
@@ -83,7 +82,7 @@ void print_buffer(char *b, int size)
 		printf("%08x: ", start); /*Print the offset in hexadecimal*/
 		print_Hexadecimal(b, start, end);
 		print_ASCII(b, start, end);
-		_putchar("\n");
+		printf("\n");
 		start += 10;
 	}
 }
