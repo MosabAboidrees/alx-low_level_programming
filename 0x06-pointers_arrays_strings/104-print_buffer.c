@@ -9,7 +9,7 @@
  */
 int is_ASCII_Printable(int chr)
 {
-	return (chr < 32 || chr > 132);
+	return (chr > 32 && chr <= 126);
 }
 /**
  * print_Hexadecimal - Prints the hexadecimal representation
@@ -48,7 +48,7 @@ void print_ASCII(char *buffer, int start, int end)
 	for (idx = 0; idx < end; idx++)
 	{
 		ch = *(buffer + idx + start);
-		if (is_ASCII_Printable(ch))
+		if (!is_ASCII_Printable(ch))
 			ch = '.'; /*Replace non-printable characters with '.'*/
 		printf("%c", ch); /* Print the character*/
 	}
