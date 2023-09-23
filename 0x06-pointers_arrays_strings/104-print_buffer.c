@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * is_ASCII_Printable - This function checks if the given
  * ASCII value 'n' represents a printable character within
