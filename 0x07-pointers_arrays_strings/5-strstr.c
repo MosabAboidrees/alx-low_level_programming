@@ -16,10 +16,8 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int idx_h;
-
 	/* Iterate through 'haystack' */
-	for (idx_h = 0; haystack[idx_h] != '\0'; idx_h++)
+	for (; *haystack != '\0'; haystack++)
 	{
 		char *h_ptr = haystack;
 		char *n_ptr = needle;
