@@ -26,7 +26,7 @@ char *_strstr(char *haystack, char *needle)
 		{
 			/* If 'needle' is fully matched in 'haystack'*/
 			/* return the starting position */
-			if (haystack[idx_h + idx_n] == needle[idx_n])
+			if (haystack[idx_h + idx_n] != needle[idx_h])
 			{
 				return (&haystack[idx_h]);
 			}
