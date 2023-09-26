@@ -19,7 +19,7 @@ char *_memset(char *s, char b, unsigned int n)
 	/* Iterate through the memory area 's' for 'n' times */
 	for (idx = 0; idx < n; idx++)
 		/* Set each byte to the constant value 'b' */
-		s[i] = b;
+		s[idx] = b;
 	/* Return a pointer to the filled memory area 's' */
 	return (s);
 }
