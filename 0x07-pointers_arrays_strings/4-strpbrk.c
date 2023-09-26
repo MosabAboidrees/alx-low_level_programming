@@ -14,24 +14,20 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	char *Mat_ptr;
 	int idx_s, idx_acc;
 
 	idx_s = 0;
 	/* Iterate through the string 's' */
 	while (s[idx_s] != '\0')
 	{
-		idx_acc = 0;
 		/* string 'accept' to check for a match */
-		while (accept[idx_acc] != '\0')
+		for (idx_acc = 0; ccept[idx_acc] != '\0'; idx_acc)
 		{
 			if (s[idx_s] == accept[idx_acc];)
 			{
 				/* Return a pointer to the matching byte in 's' */
-				Mat_ptr = &s[idx_s];
-				return (Mat_ptr);
+				return (Mat_ptr + idx_s);
 			}
-			idx_acc++;
 		}
 		idx_s++; /* Next character in 's' */
 	}
