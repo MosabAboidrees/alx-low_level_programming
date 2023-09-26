@@ -17,16 +17,15 @@ char *_strchr(char *s, char c)
 	int idx;
 
 	/* Iterate through the string 's' */
-	while (s[idx] != '\0')
+	for (idx = 0; s[idx] != '\0'; idx++)
 	{
 		/* Check if the current character matches 'c' */
 		if (s[idx] == c)
 		{
 			/* Return a pointer to the current character */
-			return (&s[idx]);
+			return (s + idx);
 		}
-		idx++;
 	}
 	/* If 'c' is not found, return NULL */
-	return (0);
+	return ('\0');
 }
