@@ -14,8 +14,7 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int count = 0;
-	int found, idx_acc, idx_s;
+	unsigned int idx_acc, idx_s;
 
 	/* Iterate through the string 's' */
 	for (idx_s = 0; s[idx_s] != '\0'; idx_s++)
@@ -25,8 +24,8 @@ unsigned int _strspn(char *s, char *accept)
 		for (idx_acc = 0; s[idx_s] != accept[idx_acc]; idx_acc++)
 		{
 			if (accept[idx_acc] == '\0')
-				return (idx_acc);
+				return (idx_s);
 		}
 	}
-	return (idx_acc);
+	return (idx_s);
 }
