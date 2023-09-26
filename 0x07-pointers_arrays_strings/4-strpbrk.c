@@ -14,6 +14,7 @@
 
 char *_strpbrk(char *s, char *accept)
 {
+	char *acc_ptr;
 	int idx_s, idx_acc;
 
 	idx_s = 0;
@@ -23,10 +24,11 @@ char *_strpbrk(char *s, char *accept)
 		/* string 'accept' to check for a match */
 		for (idx_acc = 0; accept[idx_acc] != '\0'; idx_acc)
 		{
-			if (s[idx_s] == accept[idx_acc];)
+			if (s[idx_s] == accept[idx_acc])
 			{
 				/* Return a pointer to the matching byte in 's' */
-				return (s + idx_s);
+				acc_ptr = &s[idx_s];
+				return (acc_ptr);
 			}
 		}
 		idx_s++; /* Next character in 's' */
