@@ -16,20 +16,20 @@
 
 char *_strstr(char *haystack, char *needle)
 {
+	int idx_h, idx_n;
+
 	/* Iterate through 'haystack' */
-	while (*haystack != '\0')
+	for (idx_h = 0; haystack[idx_h] != '\0'; idx_h++)
 	{
 		/* Iterate through 'needle' and 'haystack' to check for a match */
-		while (*needle != '\0' && *haystack == *needle)
+		for (idx_n = 0; needle[idx_n] != '\0'; idx_n++)
 		{
-			*haystack++;
-			*needle++;
-		}
-		/* If 'needle' is fully matched in 'haystack'*/
-		/* return the starting position */
-		if (*needle == '\0')
-		{
-			return (haystack);
+			/* If 'needle' is fully matched in 'haystack'*/
+			/* return the starting position */
+			if (haystack[idx_h] == needle[idx_n])
+			{
+				return (&haystack[idx_h]);
+			}
 		}
 	}
 	/* If 'needle' is not found in 'haystack', return NULL */
