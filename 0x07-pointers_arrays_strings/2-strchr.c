@@ -23,7 +23,7 @@ char *_strchr(char *s, char c)
 		if (s[idx] == c)
 		{
 			/* Return a pointer to the current character */
-			return (s);
+			return (&s[idx]);
 		}
 	}
 	/* If 'c' is not found, return NULL */
