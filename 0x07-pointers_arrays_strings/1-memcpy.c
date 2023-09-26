@@ -16,7 +16,7 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int idx;
 	/* Iterate through the memory area 'src' for 'n' times */
-	for (dxi = 0; idx < n; idx++)
+	for (idx = 0; idx < n; idx++)
 	{
 		/* Copy 'src' to 'dest' byte by byte*/
 		dest[idx] = src[idx];
