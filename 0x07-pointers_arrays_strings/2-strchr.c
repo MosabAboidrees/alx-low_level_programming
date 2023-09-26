@@ -23,12 +23,9 @@ char *_strchr(char *s, char c)
 		if (s[idx] == c)
 		{
 			/* Return a pointer to the current character */
-			return (&s[idx]);
-		}
-		if (s[idx] == 0)
-		{
-			/* If 'c' is not found, return NULL */
-			return (NULL);
+			return (s[idx]);
 		}
 	}
+	/* If 'c' is not found, return NULL */
+	return (NULL);
 }
