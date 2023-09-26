@@ -17,7 +17,7 @@ char *_strchr(char *s, char c)
 	int idx;
 
 	/* Iterate through the string 's' */
-	for (idx = 0; s[idx] != '\0'; idx++)
+	for (idx = 0; s[idx] >= '\0'; idx++)
 	{
 		/* Check if the current character matches 'c' */
 		if (s[idx] == c)
