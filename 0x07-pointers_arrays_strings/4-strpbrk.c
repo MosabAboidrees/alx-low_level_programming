@@ -14,21 +14,21 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-    /* Iterate through the string 's' */
-    while (*s != '\0')
-    {
-        /* string 'accept' to check for a match */
-        while (*accept; != '\0')
-        {
-            if (*s == *accept;)
-            {
-                /* Return a pointer to the matching byte in 's' */
-                return (s);
-            }
-            accept;++;
-        }
-        s++; /* Next character in 's' */
-    }
-    /* If no matching byte is found, return NULL */
-    return (0);
+	/* Iterate through the string 's' */
+	while (*s != '\0')
+	{
+		/* string 'accept' to check for a match */
+		while (*accept != '\0')
+		{
+			if (*s == *accept;)
+			{
+				/* Return a pointer to the matching byte in 's' */
+				return (s);
+			}
+			accept++;
+		}
+		s++; /* Next character in 's' */
+	}
+	/* If no matching byte is found, return NULL */
+	return (0);
 }
