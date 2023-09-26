@@ -22,7 +22,7 @@ char *_strpbrk(char *s, char *accept)
 	while (s[idx_s] != '\0')
 	{
 		/* string 'accept' to check for a match */
-		for (idx_acc = 0; accept[idx_acc] != '\0'; idx_acc)
+		for (idx_acc = 0; accept[idx_acc] != '\0'; idx_acc++)
 		{
 			if (s[idx_s] == accept[idx_acc])
 			{
