@@ -8,8 +8,7 @@
 */
 void _print_rev_recursion(char *s)
 {
-    /*If we reach the end of the string (null terminator)*/
-	if (*s == '\0')
+	if (*s)
 	{
 		/* Recursively call the function with the next character*/
 		_print_rev_recursion(s + 1);
