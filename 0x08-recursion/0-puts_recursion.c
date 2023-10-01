@@ -13,7 +13,10 @@ void _puts_recursion(char *s)
 	{
 		_putchar('\n'); /* Print a newline character*/
 	}
-	_putchar(*s); /*Print the current character*/
-	/* Recursively call the function with the next character*/
-	_puts_recursion(s + 1);
+	else
+	{
+		_putchar(*s); /*Print the current character*/
+		/* Recursively call the function with the next character*/
+		_puts_recursion(s + 1);
+	}
 }
