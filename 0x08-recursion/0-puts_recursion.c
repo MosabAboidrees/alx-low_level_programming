@@ -11,7 +11,6 @@ void _puts_recursion(char *s)
 {
 	if (*s == '\0') /* If we reach the end of the string (null terminator)*/
 		_putchar('\n'); /* Print a newline character*/
-		return;
 	_putchar(*s); /*Print the current character*/
 	/* Recursively call the function with the next character*/
 	_puts_recursion(s + 1);
