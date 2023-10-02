@@ -33,8 +33,8 @@ int main(int argc, char *argv[])
 	{
 		while (cents >= coins[i])
 		{
-			cents = cents - coins[i];
-			minCoins++;
+			minCoins = minCoins + (cents / coins[i]);
+			cents = cents % coins[i];
 		}
 	}
 	/* Print the minimum number of coins*/
