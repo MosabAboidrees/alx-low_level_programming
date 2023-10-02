@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	int minCoins = 0;
 
 	/* Apply Greedy algorithm to calculate the minimum number of coins */
-	for (int i = 0; i < numCoins; i++)
+	for (int i = 0; i < numCoins && cents >= 0; i++)
 	{
 		while (cents >= coins[i])
 		{
