@@ -11,7 +11,7 @@
 */
 int main(int argc, char *argv[])
 {
-	int cents, numCoins, minCoins, idx;
+	int cents, numCoins, minCoins, idx = 0;
 	int coins[] = {25, 10, 5, 2, 1}; /* Array of coin values */
 
 	/* Check if the number of input arguments is not exactly 2*/
