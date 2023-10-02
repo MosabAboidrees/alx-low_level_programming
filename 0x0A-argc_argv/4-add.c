@@ -15,8 +15,11 @@ int main(int argc, char *argv[])
 		for (charIdx = 0; argv[argIdx][charIdx]; charIdx++)
 		{
 			/*Check if the character is not a digit*/
-			(argv[argIdx][charIdx] < '0' || argv[argIdx][charIdx] > '9') ?
-				(printf("Error\n"), 1) : 0;
+			if (argv[argIdx][charIdx] < '0' || argv[argIdx][charIdx] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
 		sum += atoi(argv[argIdx]);
 	}
