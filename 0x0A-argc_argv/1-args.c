@@ -10,7 +10,7 @@
  * By: MOSAB ABOIDREES ALTRAIFI YOUSIF
  * mosab_mahala@yahoo.com
 */
-int main(int argc, char *argv[])
+int main(int argc, char *argv[] __attribute__((unused)))
 {
 	printf("%d\n", argc - 1);
 	return (0);
