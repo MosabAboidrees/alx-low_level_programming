@@ -11,27 +11,18 @@
 
 int main(int argc, char *argv[])
 {
-	int sum = 0;
+	int argumentIndex, charIndex, sum = 0;
 
-	if (argc == 1)
+	for (argumentIndex = 1; argumentIndex < argc; argumentIndex++)
 	{
-		printf("0\n");
-		return (0);
-	}
-	for (int i = 1; i < argc; i++)
-	{
-		char *c = argv[i];
-
-		while (*c)
+		for (charIndex = 0; argv[argumentIndex][charIndex]; charIndex++)
 		{
-			if (*c < '0' || *c > '9')
-			{
-				printf("Error\n");
-				return (1);
-			}
-			c++;
+			char currentChar = argv[argumentIndex][charIndex];
+
+			/*Check if the character is not a digit*/
+			(currentChar < '0' || currentChar > '9') ? (printf("Error\n"), exit(1)) : 0;
 		}
-		sum += atoi(argv[i]);
+		sum += atoi(argv[argumentIndex]);
 	}
 	printf("%d\n", sum);
 	return (0);
