@@ -6,23 +6,19 @@
  * @argv: Array of input argument strings
  * Return: 0 (Success) or 1 (Error)
 */
-#include <stdio.h>
-#include <stdlib.h>
-
 int main(int argc, char *argv[])
 {
-	int argumentIndex, charIndex, sum = 0;
+	int argIdx, charIdx, sum = 0;
 
-	for (argumentIndex = 1; argumentIndex < argc; argumentIndex++)
+	for (argIdx = 1; argIdx < argc; argIdx++)
 	{
-		for (charIndex = 0; argv[argumentIndex][charIndex]; charIndex++)
+		for (charIdx = 0; argv[argIdx][charIdx]; charIdx++)
 		{
-			char currentChar = argv[argumentIndex][charIndex];
-
 			/*Check if the character is not a digit*/
-			(currentChar < '0' || currentChar > '9') ? (printf("Error\n"), exit(1)) : 0;
+			(argv[argIdx][charIdx] < '0' || argv[argIdx][charIdx] > '9') ?
+				(printf("Error\n"), 1) : 0;
 		}
-		sum += atoi(argv[argumentIndex]);
+		sum += atoi(argv[argIdx]);
 	}
 	printf("%d\n", sum);
 	return (0);
