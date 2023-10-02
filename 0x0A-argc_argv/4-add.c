@@ -4,19 +4,19 @@
 /**
  * is_positive_number - Check if a a positive number
  * @str: String to check
- * Return: 1 if a positive number, 0 otherwise
+ * Return: 1 means not positive number or not digit, 0 otherwise
 */
-int is_positive_number(const char *str)
+int is_positive_number(char *str)
 {
 	if (*str == '-')
-		return (0); /* Negative numbers are not allowed*/
+		return (1); /* Negative numbers are not allowed*/
 	while (*str)
 	{
 		if (!isdigit(*str))
-			return (0); /*Non-digit not allowed*/
+			return (1); /*Non-digit not allowed*/
 		str++;
 	}
-	return (1);
+	return (0);
 }
 /**
  * main - a program that adds positive numbers
