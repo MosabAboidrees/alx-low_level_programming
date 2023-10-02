@@ -14,12 +14,9 @@
 
 int main(int argc, char *argv[])
 {
-	/* check if there are exactly two arguments.*/
-	if (argc != 3)
-		return (printf("Error\n"), 1);
-	/* Convert the input arguments to integers, then*/
-	/*  calculate, and print the result*/
-	int result = atoi(argv[1]) * atoi(argv[2]);
-
-	return (printf("%d\n", result), 0);
+	/* return (1) if there are exactly two arguments (argc != 3).*/
+	/* else convert the input arguments to integers, then*/
+	/* calculate, and print the result and return (0) */
+	return ((argc != 3) ? printf("Error\n"), 1 :
+		printf("%d\n", atoi(argv[1]) * atoi(argv[2])), 0);
 }
