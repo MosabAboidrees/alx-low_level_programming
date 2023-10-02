@@ -11,7 +11,7 @@
 */
 int main(int argc, char *argv[])
 {
-	int cents, numCoins, minCoins;
+	int cents, numCoins, minCoins, idx;
 	int coins[] = {25, 10, 5, 2, 1}; /* Array of coin values */
 
 	/* Check if the number of input arguments is not exactly 2*/
@@ -24,10 +24,11 @@ int main(int argc, char *argv[])
 	numCoins = sizeof(coins) / sizeof(coins[0]);
 	minCoins = 0;
 	/* Apply Greedy algorithm to calculate the minimum number of coins */
-	for (int i = 0; i < numCoins && cents >= 0; i++)
+	while (idx < numCoins && cents >= 0)
 	{
-		minCoins = minCoins + (cents / coins[i]);
-		cents = cents % coins[i];
+		minCoins = minCoins + (cents / coins[idx]);
+		cents = cents % coins[idx];
+		idx++;
 	}
 	/* Print the minimum number of coins*/
 	printf("%d\n", minCoins);
