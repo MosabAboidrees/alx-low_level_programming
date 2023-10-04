@@ -24,7 +24,7 @@ char *create_array(unsigned int size, char c)
 	if (ptr_arr == NULL)
 		return (NULL);
 	/* Initialize each element of the array with the specified character. */
-	for (unsigned int idx = 0; idx < size; idx++)
+	for (idx = 0; idx < size; idx++)
 	{
 		ptr_arr[idx] = c;
 	}
