@@ -10,13 +10,13 @@
 */
 char *argstostr(int ac, char **av)
 {
-	int total_len = 0, pos = 0;  /*Initialize the total length to 0*/
+	int total_len = 0, pos = 0, idx;
 	char *concat_arg, *arg;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);  /* Return NULL if ac is 0 or av is NULL*/
 	/* compute the total length of the concatenated string*/
-	for (int idx = 0; idx < ac; idx++)
+	for (idx = 0; idx < ac; idx++)
 	{
 		arg = av[idx]; /*current argument */
 		while (*arg != '\0')
@@ -30,7 +30,7 @@ char *argstostr(int ac, char **av)
 	if (concat_arg == NULL)
 		return (NULL);  /* If memory allocation fails, return NULL*/
 	/*Concatenate arguments with '\n' separators*/
-	for (int idx = 0; idx < ac; idx++)
+	for (idx = 0; idx < ac; idx++)
 	{
 		arg = av[idx];
 		while (*arg != '\0')
