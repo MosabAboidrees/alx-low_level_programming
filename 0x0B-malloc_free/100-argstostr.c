@@ -40,6 +40,7 @@ char *argstostr(int ac, char **av)
 			arg++;
 		}
 		concat_arg[pos] = '\n';  /*If not the last argument, add '\n'*/
+		pos++;
 	}
 	concat_arg[pos] = '\0';  /*Add null-terminator at the end*/
 	return (concat_arg);
