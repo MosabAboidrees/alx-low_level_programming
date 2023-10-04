@@ -26,7 +26,7 @@ char *argstostr(int ac, char **av)
 		}
 	}
 	/* Allocate memory, including space for '\n' characters*/
-	concat_arg = malloc((total_len + 1) * sizeof(char));
+	concat_arg = malloc((total_len * sizeof(char))+1);
 	if (concat_arg == NULL)
 		return (NULL);  /* If memory allocation fails, return NULL*/
 	/*Concatenate arguments with '\n' separators*/
