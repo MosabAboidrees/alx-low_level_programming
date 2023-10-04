@@ -26,7 +26,7 @@ char *argstostr(int ac, char **av)
 		}
 	}
 	/* Allocate memory, including space for '\n' characters*/
-	concat_arg = malloc((total_len + ac * sizeof(char))+1);
+	concat_arg = malloc((total_len + ac * sizeof(char)) + 1);
 	if (concat_arg == NULL)
 		return (NULL);  /* If memory allocation fails, return NULL*/
 	/*Concatenate arguments with '\n' separators*/
@@ -39,11 +39,7 @@ char *argstostr(int ac, char **av)
 			pos++; /* argument position tracker*/
 			arg++;
 		}
-		if (idx < ac - 1)  /*If not the last argument, add '\n'*/
-		{
-			concat_arg[pos] = '\n';
-			pos++;
-		}
+		concat_arg[pos] = '\n';  /*If not the last argument, add '\n'*/
 	}
 	concat_arg[pos] = '\0';  /*Add null-terminator at the end*/
 	return (concat_arg);
