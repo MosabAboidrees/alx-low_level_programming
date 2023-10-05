@@ -75,12 +75,15 @@ char **strtow(char *str)
 	if (str == NULL || *str == '\0')
 		return (NULL);
 	W_Count = count_Words(str);
+	if (W_Count == 0)
+		/*If there are no words, return NULL*/
+		return (NULL);
 	Sp_words = malloc((W_Count + 1) * sizeof(char *));
 	if (Sp_words == NULL)
 		return (NULL);
 	while (*str)
 	{
-		if (*str != ' ' || *str == '\0')
+		if (*str != ' ')
 		{
 			word_leng = word_Length(str);
 			Sp_words[WIdx] = (char *)malloc((word_leng + 1) * sizeof(char));
