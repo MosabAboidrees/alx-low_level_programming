@@ -80,7 +80,7 @@ char **strtow(char *str)
 		return (NULL);
 	while (*str)
 	{
-		if (*str != ' ')
+		if (*str != ' ' || *str == '\0')
 		{
 			word_leng = word_Length(str);
 			Sp_words[WIdx] = (char *)malloc((word_leng + 1) * sizeof(char));
