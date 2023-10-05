@@ -84,7 +84,7 @@ char **strtow(char *str)
 		{
 			word_leng = word_Length(str);
 			Sp_words[WIdx] = (char *)malloc((word_leng + 1) * sizeof(char));
-			if (result[WIdx] == NULL)
+			if (Sp_words[WIdx] == NULL)
 			{
 				/*Free allocated memory if an allocation fails*/
 				for (i = 0; i < WIdx; i++)
