@@ -54,7 +54,9 @@ int word_Length(const char *str)
 */
 void copy_Word(char *dest, const char *src, int length)
 {
-	for (int i = 0; i < length; i++)
+	int i;
+
+	for (i = 0; i < length; i++)
 	{
 		dest[i] = src[i];
 	}
@@ -74,7 +76,7 @@ char **strtow(char *str)
 		return (NULL);
 	W_Count = count_Words(str);
 	Sp_words = malloc((W_Count + 1) * sizeof(char *));
-	if (result == NULL)
+	if (Sp_words == NULL)
 		return (NULL);
 	while (*str)
 	{
