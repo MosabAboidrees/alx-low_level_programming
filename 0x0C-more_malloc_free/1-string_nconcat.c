@@ -37,11 +37,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	
 	str_len1 = _strlen(s1);
 	str_len2 = _strlen(s2);
+	if (n < 0)  /*Ensure n is non negative*/
+		return(NULL);
 	/*Ensure n is within bounds*/
 	if (n >= str_len2)
 		n = str_len2;
 	/*+1 for the null-terminator*/
-	str_concat = malloc(sizeof(char) * (str_len1 + n + 1));
+	str_concat = malloc(sizeof(*str_concat) * (str_len1 + n + 1));
 	if (str_concat == NULL)
 		return (NULL);
 	for (idxS1 = 0; s1[idxS1] != '\n'; idxS1++) /*Concatinate*/
