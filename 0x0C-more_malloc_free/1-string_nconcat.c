@@ -29,11 +29,19 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *str_concat;
 	unsigned int srt_len1, srt_len1, idxS1, idxS2;
-
-	srt_len1 = (s1 == NULL) ? 0 : _strlen(s1);
-	srt_len2 = (s2 == NULL) ? 0 : _strlen(s2);
-	n = (n >= srt_len2) ? srt_len2 : n;  /*Ensure n is within bounds*/
-	str_concat = malloc(str_len1 + n + 1);  /*+1 for the null-terminator*/
+	
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	
+	str_len1 = strlen(s1);
+	str_len2 = strlen(s2);
+	/*Ensure n is within bounds*/
+	if (n >= str_len2)
+		n = str_len2;
+	/*+1 for the null-terminator*/
+	str_concat = malloc(sizeof(char) * (str_len1 + n + 1));
 	if (str_concat == NULL)
 		return (NULL);
 	for (idxS1 = 0; idxS1 < str_len1; idxS1++)
