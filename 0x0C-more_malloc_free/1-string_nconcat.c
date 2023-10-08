@@ -28,7 +28,7 @@ int _strlen(char *s)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *str_concat;
-	unsigned int srt_len1, srt_len1, idxS1, idxS2;
+	int srt_len1, srt_len1, idxS1, idxS2;
 	
 	if (s1 == NULL)
 		s1 = "";
@@ -41,10 +41,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n >= str_len2)
 		n = str_len2;
 	/*+1 for the null-terminator*/
-	str_concat = malloc(sizeof(char) * str_len1 + (n + 1));
+	str_concat = malloc(sizeof(char) * (str_len1 + n + 1));
 	if (str_concat == NULL)
 		return (NULL);
-	for (idxS1 = 0; idxS1 < str_len1; idxS1++)
+	for (idxS1 = 0; s1[idxS1] != '\n'; idxS1++) /*Concatinate*/
 		str_concat[idxS1] = s1[idxS1];
 	for (idxS2 = 0; idxS2 < n; idxS2++)
 		str_concat[idxS1 + idxS2] = s2[idxS2];
