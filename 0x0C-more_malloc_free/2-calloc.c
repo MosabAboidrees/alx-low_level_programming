@@ -23,6 +23,5 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	/* Initialize the allocated memory with zeros */
 	for (i = 0; i < nmemb * size; i++)
 		mem_ptr[i] = 0;
-	
 	return (mem_ptr);
 }
