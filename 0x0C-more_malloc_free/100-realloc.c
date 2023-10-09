@@ -21,10 +21,12 @@ void *alloc_memory(unsigned int size)
 void copy_memory(void *dest, void *src, unsigned int size)
 {
 	unsigned int idx;
+	char *ptr_dest = dest;
+	char *ptr_src = src;
 
 	for (idx = 0; idx < size; idx++)
 	{
-		dest[idx] = src[idx];
+		ptr_dest[idx] = ptr_src[idx];
 	}
 }
 /**
