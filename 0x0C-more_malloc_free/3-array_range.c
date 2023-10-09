@@ -14,10 +14,10 @@ int *array_range(int min, int max)
 	int idx, size;
 
 	/* if minimum is greater than maximum */
-	if (minimum > maximum)
+	if (min > max)
 		return (NULL);
-	/* Calculate the size of the array */
-	size = maximum - minimum + 1;
+	/* The size of the array */
+	size = max - min + 1;
 	/* Allocate memory */
 	mem_arr = malloc(sizeof(int) * size);
 	/* if malloc failure */
@@ -26,8 +26,8 @@ int *array_range(int min, int max)
 	/* Fill the array from minimum to maximum */
 	for (idx = 0; idx < size; idx++)
 	{
-		mem_arr[idx] = minimum;
-		minimum++;
+		mem_arr[idx] = min;
+		min++;
 	}
 	return (mem_arr);
 }
