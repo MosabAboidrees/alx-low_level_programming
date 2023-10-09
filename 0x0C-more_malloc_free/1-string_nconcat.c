@@ -1,20 +1,5 @@
 #include "main.h"
 /**
- * _strlen -  a function that returns the length of a string.
- * @s: char to check
- * Return: 0 is success
-*/
-
-int _strlen(char *s)
-{
-	unsigned int i;
-
-	for (i = 0; *s != '\0' ; s++)
-		++i;
-	return (i);
-}
-
-/**
  * string_nconcat - a function that concatenates two strings.
  * @s1: The first string.
  * @s2: The second string.
@@ -33,8 +18,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s1 = "";
 	if (s2 == 0)
 		s2 = "";
-	str_len1 = _strlen(s1);
-	str_len2 = _strlen(s2);
+	/*Calculate the lengths of s1 and s2*/
+	while (s1[len_s1] != '\0')
+		len_s1++;
+	while (s2[len_s2] != '\0')
+		len_s2++;
 	/*Ensure n is within bounds*/
 	if (n >= str_len2)
 		n = str_len2;
