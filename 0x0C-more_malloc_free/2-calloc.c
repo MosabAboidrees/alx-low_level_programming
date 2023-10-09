@@ -9,7 +9,7 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *mem_ptr;
+	char *mem_ptr;
 	unsigned int i;
 
 	/* Check input validity (non-zero nmemb and size) */
