@@ -62,7 +62,8 @@ char *multiply(char *digit1, char *digit2)
 int main(int argc, char *argv[])
 {
 	char *multip;
-	int i = 0;
+	char *tem;
+	int i;
 
 	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
 	{
@@ -70,13 +71,17 @@ int main(int argc, char *argv[])
 		return (98);
 	}
 	multip = multiply(argv[1], argv[2]);
-	/*Find the position of the first non-'0' char in the result*/
-	while (multip[i] == '0' && multip[i + 1] != '\0')
+	/* Store the original pointer */
+	tem = multip;
+	/*Skip leading zeros in the result*/
+        while (*multip == '0' && *(multip + 1) != '\0')
+		multip++;
+	/*Iterate through the characters and print them*/
+	for (i = 0; multip[i] != '\0'; i++)
 	{
-		i++;
+		_putchar(multip[i]);
 	}
-	/*Print the result starting from the first non-'0' char */
-	printf("%s\n", multip + i);
-	free(multip);
+	_putchar('\n');
+	free(tem);
 	return (0);
 }
