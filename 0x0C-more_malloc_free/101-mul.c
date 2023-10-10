@@ -37,9 +37,11 @@ char *multiply(char *digit1, char *digit2)
 	{
 		error_message = "Error";
 		while (*error_message)
+		{
 			_putchar(*error_message);
-			_putchar('\n');
 			error_message++;
+		}
+		_putchar('\n');
 		exit(98);
 	}
 	/*Initialize the result with zerose*/
@@ -76,9 +78,9 @@ int main(int argc, char *argv[])
 		while (*error_message)
 		{
 			_putchar(*error_message);
-			_putchar('\n');
 			error_message++;
 		}
+		_putchar('\n');
 		return (98);
 	}
 	multip = multiply(argv[1], argv[2]);
