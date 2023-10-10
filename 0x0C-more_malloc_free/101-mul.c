@@ -65,6 +65,13 @@ char *multiply(char *digit1, char *digit2)
 	return (result);
 }
 
+/**
+ * main - multiplication
+ * @argc: Number of input arguments
+ * @argv: Array of argument strings
+ *
+ * Return: 0 (Success)
+ */
 int main(int argc, char *argv[])
 {
 	char *multip;
