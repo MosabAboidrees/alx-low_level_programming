@@ -3,11 +3,9 @@
 
 /**
  * struct dog - Defines a structure to represent a dog.
- *
- * Description: 
+ * Description:
  * This structure represents a dog and contains
  * information about its name, age, and owner.
- * 
  * @name: The name of the dog.
  * @age: The age of the dog.
  * @owner: The owner of the dog.
@@ -19,12 +17,8 @@ struct dog
 	char *owner;    /* Owner of the dog */
 };
 
-/**
- * dog_t -  Define a type alias for struct dog
-*/
 typedef struct dog dog_t;
 
-/* Function prototypes */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 dog_t *new_dog(char *name, float age, char *owner);
