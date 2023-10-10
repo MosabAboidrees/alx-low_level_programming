@@ -25,17 +25,21 @@ char *multiply(char *digit1, char *digit2)
 {
 	int lenD1 = 0, lenD2 = 0, i, j, carry, multip;
 	char *result;
+	char *error_message;
 
 	/*Calculate the lengths of the input numbers*/
 	while (digit1[lenD1])
 		lenD1++;
 	while (digit2[lenD2])
 		lenD2++;
-	/*Allocate memory for the result*/
-	result = malloc(lenD1 + lenD2 + 1);
+	result = malloc(lenD1 + lenD2 + 1); /*Allocate memory for the result*/
 	if (result == NULL)
 	{
-		printf("Error\n");
+		error_message = "Error";
+		while (*error_message)
+			_putchar(*error_message);
+			_putchar('\n');
+			error_message++;
 		exit(98);
 	}
 	/*Initialize the result with zerose*/
@@ -64,10 +68,17 @@ int main(int argc, char *argv[])
 	char *multip;
 	char *tem;
 	int i;
+	char *error_message;
 
 	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
 	{
-		printf("Error\n");
+		error_message = "Error";
+		while (*error_message)
+		{
+			_putchar(*error_message);
+			_putchar('\n');
+			error_message++;
+		}
 		return (98);
 	}
 	multip = multiply(argv[1], argv[2]);
