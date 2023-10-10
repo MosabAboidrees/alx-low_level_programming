@@ -17,8 +17,8 @@ int _isdigit(char *s)
 }
 /**
  * multiply - Multiplies two numbers represented as strings.
- * @num1: The first number.
- * @num2: The second number.
+ * @digit1: The first number.
+ * @digit2: The second number.
  * Return: result as a string.
  */
 char *multiply(char *digit1, char *digit2)
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 	/* Store the original pointer */
 	tem = multip;
 	/*Skip leading zeros in the result*/
-        while (*multip == '0' && *(multip + 1) != '\0')
+	while (*multip == '0' && *(multip + 1) != '\0')
 		multip++;
 	/*Iterate through the characters and print them*/
 	for (i = 0; multip[i] != '\0'; i++)
