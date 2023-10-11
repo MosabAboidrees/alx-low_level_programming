@@ -12,12 +12,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 4)
 	{
-		_putchar('E');
-		_putchar('r');
-		_putchar('r');
-		_putchar('o');
-		_putchar('r');
-		_putchar('\n');
+		printf("Error\n");
 		exit(98);
 	}
 	num_1 = atoi(argv[1]);
@@ -25,25 +20,15 @@ int main(int argc, char *argv[])
 	operation = get_op_func(argv[2]);
 	if (operation == NULL)
 	{
-		_putchar('E');
-		_putchar('r');
-		_putchar('r');
-		_putchar('o');
-		_putchar('r');
-		_putchar('\n');
+		printf("Error\n");
 		exit(99);
 	}
 	if ((argv[2][0] == '/' || argv[2][0] == '%') && num_2 == 0)
 	{
-		_putchar('E');
-		_putchar('r');
-		_putchar('r');
-		_putchar('o');
-		_putchar('r');
-		_putchar('\n');
+		printf("Error\n");
 		exit(100);
 	}
 	result = operation(num_1, num_2);
-	_putchar(result + '0');
+	printf("%d\n", result);
 	return (0);
 }
