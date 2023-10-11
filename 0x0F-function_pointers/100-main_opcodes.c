@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 {
 	int num_bytes;
 	char *main_opcodes;
+	int idx;
 
 	/*Check for the correct number of command-line arguments*/
 	if (argc != 2)
@@ -36,10 +37,10 @@ int main(int argc, char *argv[])
 	/*Get the address of the main function and cast it to a character pointer*/
 	main_opcodes = (char *)main;
 	/*Print the opcodes of the main function*/
-	for (int i = 0; i < num_bytes; i++)
+	for (idx = 0; idx < num_bytes; idx++)
 	{
 		/*Print the opcode in hexadecimal format with a new line*/
-		printf("%02hhx%s", main_opcodes[i], (i == num_bytes - 1) ? "\n" : " ");
+		printf("%02hhx%s", main_opcodes[idx], (idx == num_bytes - 1) ? "\n" : " ");
 
 	}
 	return (0);
