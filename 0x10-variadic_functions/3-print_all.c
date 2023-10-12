@@ -38,11 +38,12 @@ void print_all(const char * const format, ...)
 			case 's':
 				{
 					str = va_arg(args, char *);
-					printf("%s", ((str == NULL) ? "(nil)" : str_sep, str));
+					printf("%s%s", str_sep, (str ? str : "(nil)"));
 				}
 				break;
 			default:
-				break;
+				idx++;
+				continue;
 		}
 		str_sep = ", ";
 		idx++;
