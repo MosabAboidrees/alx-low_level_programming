@@ -22,9 +22,9 @@ void print_all(const char * const format, ...)
 	va_list args;
 
 	va_start(args, format);
-	while (format && format[i])
+	while (format && format[idx])
 	{
-		switch (format[i])
+		switch (format[idx])
 		{
 			case 'c':
 				printf("%s%c", str_sep, va_arg(args, int));
