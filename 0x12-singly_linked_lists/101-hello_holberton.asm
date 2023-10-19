@@ -1,14 +1,15 @@
-section	.data
-	hello db 'Hello, Holberton', 0  ; Define the string to be printedd
-	fmt db '%s', 10, 0  	    ; Define the format string for printf
+section .data
+    hello db 'Hello, Holberton', 0
+    fmt db '%s', 10, 0
 
 section .text
-	extern printf  	; Declare the printf function
-	global main  	; Define the entry point of the program
+    extern printf
+
+    global main
 main:
-	sub rsp, 8  	; Adjust the stack pointer
-	mov rdi, fmt  	; Set the format string argument for printf
-	mov rsi, hello  	; Set the string argument for printf
-	call printf  	; Call the printf function
-	add rsp, 8  	; Restore the stack pointer
-	ret  		; Return from the main function
+    sub rsp, 8
+    mov rdi, fmt
+    mov rsi, hello
+    call printf
+    add rsp, 8
+    ret
