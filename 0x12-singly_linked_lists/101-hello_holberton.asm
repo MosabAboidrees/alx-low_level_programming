@@ -1,14 +1,15 @@
-section .data
+SECTION .data
 hello:	db 'Hello, Holberton', 0
 fmt:	db '%s', 10, 0
 
-	section .text
+	SECTION .text
 	extern printf
 	global main
 main:
-	sub rsp, 8
-	mov rdi, fmt
-	mov rsi, hello
+	mov esi, hello
+	mov edi, fmt
+	mov eax, 0
 	call printf
-	add rsp, 8
+
+	mov eax, 0
 	ret
