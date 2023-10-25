@@ -6,7 +6,7 @@
  * @n: new head value.
  * Return: The address of the new element, or NULL if it failed
  */
-list_t *add_nodeint(listint_t **head, const n)
+listint_t *add_nodeint(listint_t **head, const n)
 {
 	listint_t *new_head;
 
