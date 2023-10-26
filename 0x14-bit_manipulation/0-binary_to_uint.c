@@ -8,7 +8,7 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int converted_number = 0;
+	unsigned int converted_number;
 	int idx;
 
 	/* Check if the string is NULL */
