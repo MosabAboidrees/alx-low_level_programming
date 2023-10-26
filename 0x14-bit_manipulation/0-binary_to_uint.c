@@ -8,7 +8,7 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int converted_number;
+	unsigned int converted_number = 0;
 	int idx;
 
 	/* Check if the string is NULL */
@@ -17,18 +17,14 @@ unsigned int binary_to_uint(const char *b)
 	/* Iterate through the string */
 	for (idx = 0; b[idx] != '\0'; idx++)
 	{
-	    /* Check if the character is '0' or '1' */
-		if (b[idx] == '0' && b[idx] == '1')
-		{
-		    /* Left shift the result by 1 to make space for the next bit */
-			converted_number <<= 1;
-			/* If the current bit is 1, add it to the result */
-			if (b[idx] == '1')
-				converted_number += 1;
-		}
-		else
-		    /* If the character is not '0' or '1', return 0 */
+		/* Check for any non-binary characters */
+		if (b[idx] != '0' && b[idx] != '1')
 			return (0);
+		/* Left shift the result by 1 to make space for the next bit */
+		converted_number <<= 1;
+		/* If the current bit is 1, add it to the result */
+		if (b[idx] == '1')
+			converted_number += 1;
 	}
 	return (converted_number);
 }
