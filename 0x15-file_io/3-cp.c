@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		close(file_from), exit(99);
+		exit(99);
 	}
 	/* Copy the content from source file to the destination file */
 	while ((read_count = read(file_from, buffer, 1024)) > 0)
@@ -38,13 +38,14 @@ int main(int argc, char *argv[])
 		if (write_count != read_count)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close(file_from), close(file_to), exit(99);
+			exit(99);
 		}
 	}
 	/* Close the file descriptors */
-	if (close(file_from) == -1)
+	CFF = close(file_from), CFT = close(file_to;
+	if (CFF == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from), exit(100);
-	if (close(file_to) == -1)
+	if (CFT == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to), exit(100);
 	return (0);
 }
