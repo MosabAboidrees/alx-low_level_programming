@@ -44,8 +44,8 @@ int main(int argc, char *argv[])
 	/* Close the file descriptors */
 	CFF = close(file_from), CFT = close(file_to;
 	if (CFF == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", CFF), exit(100);
 	if (CFT == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", CFT), exit(100);
 	return (0);
 }
