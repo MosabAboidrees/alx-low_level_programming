@@ -1,5 +1,7 @@
 #include "main.h"
 
+#define PERM (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
+
 /**
  * main - copies the content of a file to another file
  * @argc: number of arguments
@@ -9,7 +11,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, read_count, write_count;
+	int file_from = 0, file_to = 0, read_count, write_count;
 	char buffer[1024];
 
 	/* Check the number of arguments */
@@ -25,7 +27,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	/* Open or create the destination file for writing */
-	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, PERM);
 	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -33,14 +35,12 @@ int main(int argc, char *argv[])
 	}
 	/* Copy the content from source file to the destination file */
 	while ((read_count = read(file_from, buffer, 1024)) > 0)
-	{
 		write_count = write(file_to, buffer, read_count);
 		if (write_count != read_count)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
-	}
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	if (read_count == -1)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
+
 	/* Close the file descriptors */
 	CFF = close(file_from), CFT = close(file_to;
 	if (CFF == -1)
