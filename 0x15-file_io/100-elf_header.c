@@ -14,7 +14,7 @@ void print_magic_bytes(Elf64_Ehdr header)
 	printf("  Magic:   ");
 	for (idx = 0; idx < EI_NIDENT; idx++)
 	{
-		printf("%2.2x%s", header.e_ident[idx]);
+		printf("%02x", header.e_ident[idx]);
 		if (idx == EI_NIDENT - 1)
 		{
 			printf("\n");
@@ -205,10 +205,10 @@ void print_file_type(Elf64_Ehdr header)
 		printf("EXEC (Executable file)");
 		break;
 	case ET_DYN:
-		printf("DYN (Shardobject CORE:
-		pre file)");
+		printf("DYN (Shard object file)");
 		break;
-	case ET_intf("CORE (Core file)");
+	case ET_CORE:
+		printf("CORE (Core file)");
 		break;
 	default:
 		printf("<unknown>: %x", type_ptr[index]);
@@ -225,12 +225,12 @@ void print_file_type(Elf64_Ehdr header)
 void print_entry_point_address(Elf64_Ehdr header)
 {
 	int idx = 0, leng = 0;
-	unsigned char *ptr_add = (unsigned char *)&h.e_entry;
+	unsigned char *ptr_add = (unsigned char *)&header.e_entry;
 
 	printf("  Entry point address:               0x");
-	if (h.e_ient[EI_DATA] != ELFDATA2MSBd)
+	if (header.e_ident[EI_DATA] != ELFDATA2MSB)
 	{
-		idx = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
+		idx = header.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!ptr_add[idx])
 			idx--;
 		printf("%x", ptr_add[idx--]);
@@ -241,7 +241,7 @@ void print_entry_point_address(Elf64_Ehdr header)
 	else
 	{
 		idx = 0;
-		leng = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
+		leng = header.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!ptr_add[idx])
 			idx++;
 		printf("%x", ptr_add[idx++]);
@@ -260,7 +260,7 @@ void print_entry_point_address(Elf64_Ehdr header)
 int main(int ac, char **av)
 {
 	int fd;
-	Elf64_Ehdr h;
+	Elf64_Ehdr header;
 	ssize_t b;
 
 	if (ac != 2)
@@ -268,25 +268,25 @@ int main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 		dprintf(STDERR_FILENO, "Can't open file: %s\n", av[1]), exit(98);
-	b = read(fd, &h, sizeof(h));
-	if (b < 1 || b != sizeof(h))
+	b = read(fd, &header, sizeof(header));
+	if (b < 1 || b != sizeof(header))
 		dprintf(STDERR_FILENO, "Can't read from file: %s\n", av[1]), exit(98);
-	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' &&
-			h.e_ident[3] == 'F')
+	if (header.e_ident[0] == 0x7f && header.e_ident[1] == 'E' &&
+			header.e_ident[2] == 'L' && header.e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
 	}
 	else
 		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]), exit(98);
 
-	print_magic_bytes(h);
-	print_elf_class(h);
-	print_data_encoding(h);
-	print_version_info(h);
-	print_osabi(h);
-	print_abi_version(h);
-	print_file_type(h);
-	print_entry_point_address(h);
+	print_magic_bytes(header);
+	print_elf_class(header);
+	print_data_encoding(header);
+	print_version_info(header);
+	print_osabi(header);
+	print_abi_version(header);
+	print_file_type(header);
+	print_entry_point_address(header);
 	if (close(fd))
 		dprintf(STDERR_FILENO, "Error closing file descriptor: %d\n", fd), exit(98);
 	return (EXIT_SUCCESS);
