@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 2) /* Validate input */
 	{
-		fprintf(stderr, "Usage: %s username\n", argv[0]);
+		printf("Correct usage: ./keygen5 username\n");
 		return (1);
 	}
 
