@@ -3,6 +3,7 @@
 Module to calculate the perimeter of an island in a grid.
 """
 
+
 def island_perimeter(grid):
     """
     Calculate the perimeter of the island described in grid.
@@ -11,10 +12,11 @@ def island_perimeter(grid):
     Returns:
         int: The perimeter of the island.
     """
-    rows = len(grid) # Number of rows
-    cols = len(grid[0]) # Number of columns
-    edges = 0 # Number of edges
-    size = 0 # Size of the island
+    rows = len(grid)
+    cols = len(grid[0])
+    edges = 0
+    size = 0
+
     for rows_idx in range(rows):
         for cols_idx in range(cols):
             if grid[rows_idx][cols_idx] == 1: # Found land
@@ -23,7 +25,7 @@ def island_perimeter(grid):
                     edges -= 1 # Subtract 2 because we are counting twice
                 if cols_idx > 0 and grid[rows_idx][cols_idx-1] == 1: # Check left
                     edges -= 1 # Subtract 2 because we are counting twice
-    return (size * 4) - (edges * 2)
+    return ((size * 4) - (edges * 2))
 
 if __name__ == "__main__":
     grid = [
