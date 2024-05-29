@@ -28,14 +28,3 @@ def island_perimeter(grid):
 
 	# Each land cell has 4 sides, subtract twice the shared edges count
 	return (island_size * 4) - (shared_edges * 2)
-
-if __name__ == "__main__":
-	# Test case
-	grid = [
-		[0, 0, 0, 0, 0, 0],
-		[0, 1, 0, 0, 0, 0],
-		[0, 1, 0, 0, 0, 0],
-		[0, 1, 1, 1, 0, 0],
-		[0, 0, 0, 0, 0, 0]
-	]
-	print(island_perimeter(grid))  # Expected output: 12
