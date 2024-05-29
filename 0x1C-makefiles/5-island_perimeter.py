@@ -22,12 +22,8 @@ def island_perimeter(grid):
 			if grid[rows_idx][cols_idx] == 1: # Found land
 				size += 1 # Increase the size of the island
 				if (cols_idx > 0 and grid[rows_idx][cols_idx-1] == 1): # Check left
-					edges -= 1 # Subtract 2 because we are counting twice
-				if (rows_idx > 0 and grid[rows_idx-1][cols_idx] == 1):
-					edges -= 1 # Check up
-				if (cols_idx < cols - 1 and grid[rows_idx][cols_idx+1] == 1):
-					edges -= 1 # Check right
-				if (rows_idx < rows - 1 and grid[rows_idx+1][cols_idx] == 1):
-					edges -= 1 # Check down
+					edges += 1
+				if (rows_idx > 0 and grid[rows_idx-1][cols_idx] == 1): # Check up
+					edges += 1
 	# The formula is 4 * size - 2 * edges because we are counting twice
 	return ((size * 4) - (edges * 2))
