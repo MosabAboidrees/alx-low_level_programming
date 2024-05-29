@@ -1,21 +1,41 @@
 #!/usr/bin/python3
-""" Island Perimeter """
+"""Module to calculate the perimeter of an island in a grid."""
 
 
 def island_perimeter(grid):
-	""" Calculate the perimeter of the island in the grid."""
-	rows = len(grid)
-	cols = len(grid[0])
-	edges = 0
-	size = 0
+	"""
+	Calculate the perimeter of the island described in grid.
+	Args:
+		grid (list of list of int): The grid representation of the island.
+	Returns:
+		int: The perimeter of the island.
+	"""
+	height = len(grid)  # Number of rows
+	width = len(grid[0])  # Number of columns
+	island_size = 0  # Count of land cells
+	shared_edges = 0  # Count of shared edges between land cells
 
-	for rows_idx in range(rows):
-		for cols_idx in range(cols):
-			if grid[rows_idx][cols_idx] == 1: # Found land
-				size += 1 # Increase the size of the island
-				if (cols_idx > 0 and grid[rows_idx][cols_idx-1] == 1):
-					edges += 1 # Check left
-				if (rows_idx > 0 and grid[rows_idx-1][cols_idx] == 1):
-					edges += 1 # Check up
-	# The formula is 4 * size - 2 * edges because we are counting twice
-	return ((size * 4) - (edges * 2))
+	for row in range(height):
+		for col in range(width):
+			if grid[row][col] == 1:  # Found land
+				island_size += 1  # Increase the island size
+				# Check if the left neighbor is also land
+				if col > 0 and grid[row][col - 1] == 1:
+					shared_edges += 1
+				# Check if the top neighbor is also land
+				if row > 0 and grid[row - 1][col] == 1:
+					shared_edges += 1
+
+	# Each land cell has 4 sides, subtract twice the shared edges count
+	return (island_size * 4) - (shared_edges * 2)
+
+if __name__ == "__main__":
+	# Test case
+	grid = [
+		[0, 0, 0, 0, 0, 0],
+		[0, 1, 0, 0, 0, 0],
+		[0, 1, 0, 0, 0, 0],
+		[0, 1, 1, 1, 0, 0],
+		[0, 0, 0, 0, 0, 0]
+	]
+	print(island_perimeter(grid))  # Expected output: 12
