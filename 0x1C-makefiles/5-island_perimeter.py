@@ -1,31 +1,39 @@
 #!/usr/bin/python3
-'''Module to calculate the perimeter of an island in a grid.'''
+"""
+Module to calculate the perimeter of an island in a grid.
+"""
 
 def island_perimeter(grid):
-	'''Returns the perimeter of the island described in grid.'''
-	perimeter = 0
+    """
+    Calculate the perimeter of the island described in grid.
 
-	for row_idx, row in enumerate(grid):
-		for col_idx, cell in enumerate(row):
-			if cell == 1:
-				# Check all four sides of the cell
-				if col_idx == 0 or row[col_idx - 1] == 0:  # Check left side
-					perimeter += 1
-				if col_idx == len(row) - 1 or row[col_idx + 1] == 0:  # Check right side
-					perimeter += 1
-				if row_idx == 0 or grid[row_idx - 1][col_idx] == 0:  # Check top side
-					perimeter += 1
-				if row_idx == len(grid) - 1 or grid[row_idx + 1][col_idx] == 0:  # Check bottom side
-					perimeter += 1
+    Args:
+        grid (list of list of int): The grid representation of the island.
 
-	return perimeter
+    Returns:
+        int: The perimeter of the island.
+    """
+    rows = len(grid)  # Number of rows
+    cols = len(grid[0])  # Number of columns
+    perimeter = 0  # Initialize perimeter
+
+    for row_idx in range(rows):
+        for col_idx in range(cols):
+            if grid[row_idx][col_idx] == 1:  # Found land
+                perimeter += 4  # Add 4 for each land cell
+                if row_idx > 0 and grid[row_idx - 1][col_idx] == 1:  # Check up
+                    perimeter -= 2  # Subtract 2 for the shared edge with the upper cell
+                if col_idx > 0 and grid[row_idx][col_idx - 1] == 1:  # Check left
+                    perimeter -= 2  # Subtract 2 for the shared edge with the left cell
+
+    return perimeter
 
 if __name__ == "__main__":
-	grid = [
-		[0, 0, 0, 0, 0, 0],
-		[0, 1, 0, 0, 0, 0],
-		[0, 1, 0, 0, 0, 0],
-		[0, 1, 1, 1, 0, 0],
-		[0, 0, 0, 0, 0, 0]
-	]
-	print(island_perimeter(grid))
+    grid = [
+        [0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0]
+    ]
+    print(island_perimeter(grid))
